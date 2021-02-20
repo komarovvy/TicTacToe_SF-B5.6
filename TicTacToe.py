@@ -11,6 +11,9 @@ def line_is_done():
 def get_move():
     return 0, 0
 
+def set_field():
+    pass
+
 def change_player(player):
     return 1 - player
 
@@ -20,12 +23,9 @@ print("Enter row, column coordinates to make a move")
 
 ttt_field = [['-' for c in range(3)] for r in range(3)]
 player = 1
-# while line_is_done():
-#     player = change_player(player)
-#     row, col = get_move(player)
-#     ttt_field[row, col] = player_sign(player)
-#     show_field()
-#
-# print("Player", player_sign(player), "wins!")
+while line_is_done():
+    player = change_player(player)
+    set_field(get_move(),player)
+    show_field()
 
-show_field()
+print("Player", player_sign(player), "wins!")
