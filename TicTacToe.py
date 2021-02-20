@@ -1,7 +1,7 @@
 PLAYER_SIGN = ('x', 'o', '-')
 ATTEMPT_MAX = 3
-FIELD_SIZE_X = 4
-FIELD_SIZE_Y = 5
+FIELD_SIZE_X = 3
+FIELD_SIZE_Y = 3
 WIN_LINE_LEN = 3
 
 
@@ -78,7 +78,7 @@ def get_move():
         break
     else:
         return None, None
-    # print(f"Your choise {row},{col}")
+
     return row, col
 
 
@@ -98,9 +98,10 @@ print("Hello! Let's play TicTacToe!")
 print("Enter row, column coordinates to make a move")
 
 
-# ttt_field = [[(r+1)*10+c+1 for c in range(FIELD_SIZE_X)] for r in range(FIELD_SIZE_Y)]
 ttt_field = [[PLAYER_SIGN[2] for c in range(FIELD_SIZE_X)] for r in range(FIELD_SIZE_Y)]
 player = 1
+
+show_field(ttt_field)
 while not line_is_done(ttt_field):
     player = change_player(player)
     if not set_field(ttt_field, get_move(), player):
@@ -108,6 +109,4 @@ while not line_is_done(ttt_field):
     show_field(ttt_field)
 else:
     print("Player '", PLAYER_SIGN[player], "' wins!", sep= '')
-
-#TODO code line_is_done()
 
