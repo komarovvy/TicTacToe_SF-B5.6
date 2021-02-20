@@ -11,8 +11,8 @@ def line_is_done():
 def get_move():
     return 0, 0
 
-def set_field():
-    pass
+def set_field(coord, player):
+    ttt_field[coord[0]][coord[1]] = player_sign[player]
 
 def change_player(player):
     return 1 - player
@@ -29,3 +29,4 @@ while line_is_done():
     show_field()
 
 print("Player", player_sign(player), "wins!")
+
